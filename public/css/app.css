@@ -1240,6 +1240,9 @@ select {
 .inline-flex {
   display: inline-flex;
 }
+.table {
+  display: table;
+}
 .grid {
   display: grid;
 }
@@ -1909,6 +1912,34 @@ select {
 }
 .ease-in {
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+}
+
+
+.divTable{
+	display: table;
+	width: -webkit-fill-available;
+  margin: 30px;
+}
+.divTableRow {
+	display: table-row;
+}
+.divTableHeading {
+	background-color: #e7e7e7;
+  display: table-row;
+	font-weight: bold;
+}
+.divTableCell, .divTableHead {
+	border: 1px solid #999999;
+	display: table-cell;
+	padding: 3px 10px;
+}
+.divTableFoot {
+	background-color: #EEE;
+	display: table-footer-group;
+	font-weight: bold;
+}
+.divTableBody {
+	display: table-row-group;
 }
 .hover\:border-gray-300:hover {
   --tw-border-opacity: 1;

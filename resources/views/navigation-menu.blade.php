@@ -25,7 +25,7 @@
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         Группы
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="{{ route('students') }}" :active="request()->routeIs('students')">
                         Ученики
                     </x-jet-nav-link>
                 </div>
