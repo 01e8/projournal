@@ -17,11 +17,11 @@
         </div>
         @endforeach
         <div class="divTableCell" style="text-align: center; white-space: nowrap;">
-          <form onsubmit="return confirm('Вы уверены?')" action="{{ route('students.destroy', $tableDataRow['id']) }}" method="POST">
+          <form onsubmit="return confirm('Вы уверены?')" action="{{ route( $tableName . '.destroy', $tableDataRow['id']) }}" method="POST">
 
-              <a class="btn btn-info" href="{{ route('students.show', $tableDataRow['id']) }}"><u>Показать</u></a>&nbsp&nbsp|&nbsp
+              <a class="btn btn-info" href="{{ route( $tableName . '.show', $tableDataRow['id']) }}"><u>Показать</u></a>&nbsp&nbsp|&nbsp
 
-              <a class="btn btn-primary" href="{{ route('students.edit', $tableDataRow['id']) }}"><u>Изменить</u></a>&nbsp&nbsp|&nbsp
+              <a class="btn btn-primary" href="{{ route( $tableName . '.edit', $tableDataRow['id']) }}"><u>Изменить</u></a>&nbsp&nbsp|&nbsp
 
               @csrf
               @method('DELETE')

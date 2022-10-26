@@ -8,6 +8,7 @@ class Table extends Component
 {
 
     public $tableData;
+    public $tableName;
     public $columnHeaderNames;
     public $columnLinkNames;
     /**
@@ -15,9 +16,10 @@ class Table extends Component
      *
      * @return void
      */
-    public function __construct($tableData, $columnHeaderNames, $columnLinkNames)
+    public function __construct($tableData, $tableName, $columnHeaderNames, $columnLinkNames)
     {
         $this->tableData = $tableData->toArray();
+        $this->tableName = $tableName;
         $this->columnHeaderNames = $columnHeaderNames;
         $this->columnLinkNames = $columnLinkNames;
 

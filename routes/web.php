@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\GroupController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,10 +29,5 @@ Route::middleware([
     })->name('dashboard');
 
     Route::resource('students', StudentController::class);
-
-    // Route::get('/students', [StudentController::class, 'index'])->name('students.index');
-    // Route::get('/students/create', [StudentController::class, 'create'])->name('students.create');
-    // Route::get('/students/destroy', [StudentController::class, 'destroy'])->name('students.destroy');
-    // Route::get('/students/show', [StudentController::class, 'show'])->name('students.show');
-    // Route::get('/students/edit', [StudentController::class, 'edit'])->name('students.edit');
+    Route::resource('groups', GroupController::class);
 });
