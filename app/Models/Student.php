@@ -12,4 +12,11 @@ class Student extends Model
     protected $fillable = [
         'note', 'start_date', 'end_date', 'first_name', 'last_name', 'patronymic', 'group_id', 'email', 'phone', 'parent_phone'
     ];
+
+    public function group()
+    {
+        return $this->belongsTo(Group::class)->withDefault([
+            'name' => 'Без группы',
+        ]);
+    }
 }
