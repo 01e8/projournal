@@ -27,7 +27,11 @@
             <!-- Page Heading -->
             @if (isset($header))
                 <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    <div class="bread-crumbs max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                      <a onclick="javascript:history.back();return false;">
+                          <img class="button-back" src="/img/back_icon.png" alt="Назад"/>
+                      </a>
+                      &nbsp/&nbsp&nbsp&nbsp&nbsp
                         {{ $header }}
                     </div>
                 </header>

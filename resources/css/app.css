@@ -2,11 +2,71 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ==== BIG ELEMENTS ==== */
+.bread-crumbs {
+		display: flex;
+}
+
+.card-board {
+	padding: 25px;
+	overflow: auto;
+}
+/* ==== FORMS INPUTS ETC ==== */
+
+.button-back {
+		cursor: pointer;
+		max-width: 26px;
+    margin-right: 14px;
+}
+
+.form-group {
+	padding-bottom: 18px;
+}
+
+.bottom-form-buttons {
+  margin-top: 10px;
+}
+
+@keyframes alert-disapear {
+	0% {
+		max-height: 100px;
+		margin-top: 40px;
+    opacity: 1;
+	}
+  50% {
+    max-height: 100px;
+		margin-top: 40px;
+    opacity: 0;
+  }
+	100% {
+		max-height: 0;
+		margin-top: 0;
+    opacity: 0;
+	}
+}
+
+/* ==== ALERT ==== */
+
+.alert {
+	margin-top: 40px;
+  font-size: 19pt;
+  font-weight: 800;
+	overflow: hidden;
+	max-height: 100px;
+}
+
+.alert, .alert-success {
+	color: #0dad5c;
+	animation: alert-disapear 1s 1 3s ease-in-out forwards;
+}
+
+
+/* ==== TABLE ==== */
 
 .divTable{
 	display: table;
 	width: -webkit-fill-available;
-  margin: 30px;
+	margin-top: 20px;
 }
 .divTableRow {
 	display: table-row;
@@ -20,7 +80,7 @@
 	font-weight: bold;
 }
 .divTableCell, .divTableHead {
-	border: 1px solid #999999;
+	border: 1px solid #d5d5d5;
 	display: table-cell;
 	padding: 3px 10px;
 }

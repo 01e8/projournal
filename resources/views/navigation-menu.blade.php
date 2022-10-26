@@ -25,7 +25,7 @@
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         Группы
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('students') }}" :active="request()->routeIs('students')">
+                    <x-jet-nav-link href="{{ route('students.index') }}" :active="request()->routeIs('students.index')">
                         Ученики
                     </x-jet-nav-link>
                 </div>
@@ -154,7 +154,11 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+                <!-- {{ __('Dashboard') }} -->
+                Журнал
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('students.index') }}" :active="request()->routeIs('students.index')">
+                Ученики
             </x-jet-responsive-nav-link>
         </div>
 
@@ -176,7 +180,8 @@
             <div class="mt-3 space-y-1">
                 <!-- Account Management -->
                 <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
-                    {{ __('Profile') }}
+                    <!-- {{ __('Profile') }} -->
+                    Профиль
                 </x-jet-responsive-nav-link>
 
                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
@@ -191,7 +196,8 @@
 
                     <x-jet-responsive-nav-link href="{{ route('logout') }}"
                                    @click.prevent="$root.submit();">
-                        {{ __('Log Out') }}
+                        <!-- {{ __('Log Out') }} -->
+                        Выход
                     </x-jet-responsive-nav-link>
                 </form>
 

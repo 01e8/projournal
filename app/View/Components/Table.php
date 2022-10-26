@@ -21,9 +21,12 @@ class Table extends Component
         $this->columnHeaderNames = $columnHeaderNames;
         $this->columnLinkNames = $columnLinkNames;
 
+        array_unshift($this->columnHeaderNames , 'ID');
+
         $tableDataOrdered = [];
 
         foreach ($this->tableData as $row => $tableDataRow):
+          $tableDataOrdered[$row]['id'] = $tableDataRow['id'];
           foreach ($this->columnLinkNames as $column => $linkName):
             $tableDataOrdered[$row][$column] = $tableDataRow[$linkName];
           endforeach;
