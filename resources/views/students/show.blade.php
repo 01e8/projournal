@@ -28,6 +28,38 @@
                           {{ $student->patronymic }}
                       </div>
                   </div>
+                  <div class="">
+                      <div class="form-group">
+                          <strong>Группа:</strong>
+                          @isset($student->group->id)<a class="btn btn-info" href="{{ route('groups.show', $student->group->id) }}"><u>@endisset
+                            {{ $student->group->name }}
+                          @isset($student->group)</u></a>@endisset
+                      </div>
+                  </div>
+                  <div class="">
+                      <div class="form-group">
+                          <strong>Email:</strong>
+                          {{ $student->email }}
+                      </div>
+                  </div>
+                  <div class="">
+                      <div class="form-group">
+                          <strong>Телефон:</strong>
+                          {{ $student->phone }}
+                      </div>
+                  </div>
+                  <div class="">
+                      <div class="form-group">
+                          <strong>Телеофн родителя:</strong>
+                          {{ $student->parent_phone }}
+                      </div>
+                  </div>
+                  <div class="">
+                      <div class="form-group">
+                          <strong>Пометки:</strong>
+                          {{ $student->note }}
+                      </div>
+                  </div>
               </div>
 
               <div class="bottom-form-buttons">

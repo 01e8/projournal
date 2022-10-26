@@ -10,7 +10,19 @@ class GroupController extends Controller
   public function index()
   {
     $groups = Group::all();
-    return view('groups.index',['groups'=> $groups]);
+
+    $groupsArrayReady = [];
+
+    $headerNames = ['ID', 'Название группы', 'Преподаватель', 'Кол-во учеников'];
+
+    foreach ($groups as $row => $group):
+      $groupsArrayReady[$row]['id'] = $group->id;
+      $groupsArrayReady[$row][0] = $group->name;
+      $groupsArrayReady[$row][1] = $group->teacher_id;
+      $groupsArrayReady[$row][2] = $group->students->count();;
+    endforeach;
+
+    return view('groups.index',[ 'headerNames' => $headerNames, 'groups'=> $groupsArrayReady]);
   }
 
   public function create()

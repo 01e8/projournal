@@ -22,6 +22,17 @@
                           {{ $group->teacher_id }}
                       </div>
                   </div>
+
+                  <div class="">
+                      <div class="form-group">
+                          <strong>Ученики:</strong>
+                          <ul>
+                            @foreach ($group->students as $student)
+                            <a class="btn btn-info" href="{{ route('students.show', $student->id) }}"><u><li>{{ $student->first_name . ' ' . $student->last_name . ' ' . $student->patronymic }}</li></u></a>
+                            @endforeach
+                          </ul>
+                      </div>
+                  </div>
               </div>
 
               <div class="bottom-form-buttons">

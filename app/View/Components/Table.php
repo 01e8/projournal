@@ -10,31 +10,16 @@ class Table extends Component
     public $tableData;
     public $tableName;
     public $columnHeaderNames;
-    public $columnLinkNames;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($tableData, $tableName, $columnHeaderNames, $columnLinkNames)
+    public function __construct($tableData, $tableName, $columnHeaderNames)
     {
-        $this->tableData = $tableData->toArray();
+        $this->tableData = $tableData;
         $this->tableName = $tableName;
         $this->columnHeaderNames = $columnHeaderNames;
-        $this->columnLinkNames = $columnLinkNames;
-
-        array_unshift($this->columnHeaderNames , 'ID');
-
-        $tableDataOrdered = [];
-
-        foreach ($this->tableData as $row => $tableDataRow):
-          $tableDataOrdered[$row]['id'] = $tableDataRow['id'];
-          foreach ($this->columnLinkNames as $column => $linkName):
-            $tableDataOrdered[$row][$column] = $tableDataRow[$linkName];
-          endforeach;
-        endforeach;
-
-        $this->tableData = $tableDataOrdered;
     }
 
     /**

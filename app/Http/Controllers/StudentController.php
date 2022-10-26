@@ -4,18 +4,34 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;
+use App\Models\Group;
 
 class StudentController extends Controller
 {
     public function index()
     {
       $students = Student::all();
-      return view('students.index',['students'=> $students]);
+
+      $studentsArrayReady = [];
+
+      $headerNames = ['ID', 'Имя', 'Фамилия', 'Отчество', 'Группа', 'Телефон'];
+
+      foreach ($students as $row => $student):
+        $studentsArrayReady[$row]['id'] = $student->id;
+        $studentsArrayReady[$row][0] = $student->first_name;
+        $studentsArrayReady[$row][1] = $student->last_name;
+        $studentsArrayReady[$row][2] = $student->patronymic;
+        $studentsArrayReady[$row][3] = $student->group->name;
+        $studentsArrayReady[$row][4] = $student->phone;
+      endforeach;
+
+      return view('students.index',[ 'headerNames' => $headerNames, 'students' => $studentsArrayReady ]);
     }
 
     public function create()
     {
-        return view('students.create');
+        $groups = Group::all();
+        return view('students.create', [ 'groups' => $groups ]);
     }
 
     public function store(Request $request)
@@ -39,7 +55,8 @@ class StudentController extends Controller
 
     public function edit(Student $student)
     {
-        return view('students.edit',compact('student'));
+        $groups = Group::all();
+        return view('students.edit', [ 'student' => $student, 'groups' => $groups ]);
     }
 
     public function update(Request $request, Student $student)
