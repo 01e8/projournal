@@ -10,16 +10,19 @@ class Table extends Component
     public $tableData;
     public $tableName;
     public $columnHeaderNames;
+    public $actions;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($tableData, $tableName, $columnHeaderNames)
+    public function __construct($tableData, $tableName, $columnHeaderNames, $actions)
     {
         $this->tableData = $tableData;
         $this->tableName = $tableName;
         $this->columnHeaderNames = $columnHeaderNames;
+        $this->actions = $actions;
     }
 
     /**

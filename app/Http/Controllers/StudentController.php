@@ -14,6 +14,8 @@ class StudentController extends Controller
 
       $studentsArrayReady = [];
 
+      $actions = ['add', 'show', 'edit', 'destroy'];
+
       $headerNames = ['ID', 'Имя', 'Фамилия', 'Отчество', 'Группа', 'Телефон'];
 
       foreach ($students as $row => $student):
@@ -25,7 +27,7 @@ class StudentController extends Controller
         $studentsArrayReady[$row][4] = $student->phone;
       endforeach;
 
-      return view('students.index',[ 'headerNames' => $headerNames, 'students' => $studentsArrayReady ]);
+      return view('students.index',[ 'headerNames' => $headerNames, 'students' => $studentsArrayReady, 'actions' => $actions ]);
     }
 
     public function create()

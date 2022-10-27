@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\GroupController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,4 +31,15 @@ Route::middleware([
 
     Route::resource('students', StudentController::class);
     Route::resource('groups', GroupController::class);
+
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
+    Route::get('/users/{id}', [UserController::class, 'show'])->name('users.show');
+    Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
+    Route::get('/users/{id}/enable', [UserController::class, 'enable'])->name('users.enable');
+    Route::get('/users/{id}/disable', [UserController::class, 'disable'])->name('users.disable');
+
+    // Route::get('/teachers', function () {
+    //     return view('teachers.index');
+    // })->name('teachers.index');
+
 });

@@ -15,9 +15,13 @@ class CreateGroupsTable extends Migration
     {
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('teacher_id')->nullable();
+            $table->unsignedBigInteger('teacher_id')->nullable();
             $table->string('name');
             $table->timestamps();
+        });
+
+        Schema::table('groups', function(Blueprint $table) {
+            $table->foreign('teacher_id')->references('id')->on('users')->onDelete('restrict');
         });
     }
 

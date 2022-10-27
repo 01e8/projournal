@@ -21,11 +21,15 @@ class CreateStudentsTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('patronymic');
-            $table->bigInteger('group_id')->nullable();
+            $table->unsignedBigInteger('group_id')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
             $table->string('parent_phone')->nullable();
             $table->timestamps();
+        });
+
+        Schema::table('students', function(Blueprint $table) {
+            $table->foreign('group_id')->references('id')->on('groups')->onDelete('set null');
         });
     }
 

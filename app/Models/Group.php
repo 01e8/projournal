@@ -17,4 +17,9 @@ class Group extends Model
     {
         return $this->hasMany(Student::class);
     }
+
+    public function teacher()
+    {
+        return $this->belongsTo(User::class, 'teacher_id');
+    }
 }

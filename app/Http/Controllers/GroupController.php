@@ -13,6 +13,8 @@ class GroupController extends Controller
 
     $groupsArrayReady = [];
 
+    $actions = ['add', 'show', 'edit', 'destroy'];
+
     $headerNames = ['ID', 'Название группы', 'Преподаватель', 'Кол-во учеников'];
 
     foreach ($groups as $row => $group):
@@ -22,7 +24,7 @@ class GroupController extends Controller
       $groupsArrayReady[$row][2] = $group->students->count();;
     endforeach;
 
-    return view('groups.index',[ 'headerNames' => $headerNames, 'groups'=> $groupsArrayReady]);
+    return view('groups.index',[ 'headerNames' => $headerNames, 'groups'=> $groupsArrayReady, 'actions' => $actions]);
   }
 
   public function create()
