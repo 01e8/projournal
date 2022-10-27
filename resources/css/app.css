@@ -2,21 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ==== BIG ELEMENTS ==== */
+/* * ==== BIG ELEMENTS ==== */
+
 .bread-crumbs {
-		display: flex;
+	display: flex;
 }
 
 .card-board {
 	padding: 25px;
 	overflow: auto;
 }
-/* ==== FORMS INPUTS ETC ==== */
+
+/* * ==== FORMS INPUTS ETC ==== */
 
 .button-back {
-		cursor: pointer;
-		max-width: 26px;
-    margin-right: 14px;
+	cursor: pointer;
+	max-width: 26px;
+	margin-right: 14px;
 }
 
 .form-group {
@@ -24,76 +26,87 @@
 }
 
 .bottom-form-buttons {
-  margin-top: 10px;
+	margin-top: 10px;
 }
 
 @keyframes alert-disapear {
 	0% {
 		max-height: 100px;
 		margin-top: 40px;
-    opacity: 1;
+		opacity: 1;
 	}
-  50% {
-    max-height: 100px;
+
+	50% {
+		max-height: 100px;
 		margin-top: 40px;
-    opacity: 0;
-  }
+		opacity: 0;
+	}
+
 	100% {
 		max-height: 0;
 		margin-top: 0;
-    opacity: 0;
+		opacity: 0;
 	}
 }
 
-ul, ol {
+ul,
+ol {
 	list-style: auto;
 	padding-left: 16px;
 }
 
-/* ==== ALERT ==== */
+/* * ==== ALERT ==== */
 
 .alert {
 	margin-top: 40px;
-  font-size: 19pt;
-  font-weight: 800;
+	font-size: 19pt;
+	font-weight: 800;
 	overflow: hidden;
 	max-height: 100px;
 }
 
-.alert, .alert-success {
+.alert,
+.alert-success {
 	color: #0dad5c;
 	animation: alert-disapear 1s 1 3s ease-in-out forwards;
 }
 
 
-/* ==== TABLE ==== */
+/* * ==== TABLE ==== */
 
-.divTable{
+.divTable {
 	display: table;
 	width: -webkit-fill-available;
 	margin-top: 20px;
 }
+
 .divTableRow {
 	display: table-row;
 }
+
 .divTableRow {
 	display: table-row;
 }
+
 .divTableHeading {
 	background-color: #e7e7e7;
-  display: table-row;
+	display: table-row;
 	font-weight: bold;
 }
-.divTableCell, .divTableHead {
+
+.divTableCell,
+.divTableHead {
 	border: 1px solid #d5d5d5;
 	display: table-cell;
 	padding: 3px 10px;
 }
+
 .divTableFoot {
 	background-color: #EEE;
 	display: table-footer-group;
 	font-weight: bold;
 }
+
 .divTableBody {
 	display: table-row-group;
 }
