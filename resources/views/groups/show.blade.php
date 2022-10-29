@@ -12,14 +12,14 @@
                 <div class="">
                     <div class="">
                         <div class="form-group">
-                            <strong>Название групы:</strong>
+                            <strong>Название группы:</strong>
                             {{ $group->name }}
                         </div>
                     </div>
                     <div class="">
                         <div class="form-group">
                             <strong>Преподаватель:</strong>
-                            {{ $group->teacher_id }}
+                            {{ $group->teacher->name }}
                         </div>
                     </div>
 

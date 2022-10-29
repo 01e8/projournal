@@ -29,14 +29,24 @@
                     <div class="">
                         <div class="">
                             <div class="form-group">
-                                <label class="block font-medium text-sm text-gray-700">Название групы:</label>
+                                <label class="block font-medium text-sm text-gray-700">Название группы:</label>
                                 <input type="text" name="name" value="{{ $group->name }}" class="form-control border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block">
                             </div>
                         </div>
                         <div class="">
                             <div class="form-group">
                                 <label class="block font-medium text-sm text-gray-700">Преподаватель:</label>
-                                <input type="text" name="teacher_id" value="{{ $group->teacher_id }}" class="form-control border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block">
+                                <select name="teacher_id">
+                                    <option value="">Без преподавателя</option>
+                                    @foreach ($teachers as $teacher)
+                                    <option @if ($group->teacher_id === $teacher->id)
+                                        selected
+                                        @endif
+                                        value="{{ $teacher->id }}">
+                                        {{ $teacher->name }}
+                                    </option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="bottom-form-buttons">
