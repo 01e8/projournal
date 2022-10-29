@@ -108,4 +108,47 @@ trait HasRolesAndPermissions
         $this->permissions()->detach();
         return $this->givePermissionsTo($permissions);
     }
+
+        /**
+     * @param array $roles
+     * @return mixed
+     */
+    public function getAllRoles(array $roles)
+    {
+        return Role::whereIn('slug',$roles)->get();
+    }
+    /**
+     * @param mixed ...$roles
+     * @return $this
+     */
+    public function giveRolesTo(array $roles)
+    {
+        $roles = $this->getAllRoles($roles);
+
+        if($roles === null) {
+            return $this;
+        }
+        $this->roles()->saveMany($roles);
+        return $this;
+    }
+
+    /**
+     * @param mixed ...$roles
+     * @return $this
+     */
+    public function deleteRoles(array $roles )
+    {
+        $roles = $this->getAllRoles($roles);
+        $this->roles()->detach($roles);
+        return $this;
+    }
+    /**
+     * @param mixed ...$roles
+     * @return HasRolesAndPermissions
+     */
+    public function refreshRoles(array $roles )
+    {
+        $this->roles()->detach();
+        return $this->giveRolesTo($roles);
+    }
 }

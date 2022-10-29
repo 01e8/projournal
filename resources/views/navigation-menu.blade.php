@@ -25,9 +25,6 @@
                     <x-jet-nav-link href="{{ route('groups.index') }}" :active="request()->routeIs('groups.index')">
                         Группы
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        Преподаватели
-                    </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('students.index') }}" :active="request()->routeIs('students.index')">
                         Ученики
                     </x-jet-nav-link>
